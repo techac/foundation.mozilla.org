@@ -4,7 +4,6 @@ from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, StreamFieldPane
 from wagtail.core.models import Page
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
-from networkapi.wagtailpages.donation_modal import DonationModals   # noqa: F401
 from . import MiniSiteNameSpace
 
 

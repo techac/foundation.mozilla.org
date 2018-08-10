@@ -12,6 +12,8 @@ from factory import (
 )
 from .models import (
     CampaignPage,
+    DonationModal,
+    DonationModals,
     Homepage,
     HomepageFeaturedNews,
     HomepageFeaturedHighlights,
@@ -26,10 +28,7 @@ from .models import (
     Signup,
     Styleguide,
 )
-from .donation_modal import (
-    DonationModal,
-    DonationModals,
-)
+
 from networkapi.highlights.factory import HighlightFactory
 from networkapi.news.factory import NewsFactory
 

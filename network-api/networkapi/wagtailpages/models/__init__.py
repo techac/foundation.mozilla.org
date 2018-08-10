@@ -1,4 +1,8 @@
 from networkapi.wagtailpages.models.base_fields import base_fields
+from networkapi.wagtailpages.models.donation_modal import (
+    DonationModal,
+    DonationModals,
+)
 
 from networkapi.wagtailpages.models.modular_page import ModularPage
 from networkapi.wagtailpages.models.mini_site_namespace import MiniSiteNameSpace
