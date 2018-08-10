@@ -8,8 +8,28 @@ from factory import (
     Faker,
     SubFactory,
     LazyAttribute,
-    Trait)
-import networkapi.wagtailpages.models
+    Trait,
+)
+from .models import (
+    CampaignPage,
+    Homepage,
+    HomepageFeaturedNews,
+    HomepageFeaturedHighlights,
+    InitiativesPage,
+    MiniSiteNameSpace,
+    NewsPage,
+    OpportunityPage,
+    ParticipatePage,
+    PeoplePage,
+    Petition,
+    PrimaryPage,
+    Signup,
+    Styleguide,
+)
+from .donation_modal import (
+    DonationModal,
+    DonationModals,
+)
 from networkapi.highlights.factory import HighlightFactory
 from networkapi.news.factory import NewsFactory
 
@@ -38,14 +58,14 @@ class CTAFactory(DjangoModelFactory):
 
 class PetitionFactory(CTAFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.Petition
+        model = Petition
 
     campaign_id = settings.PETITION_TEST_CAMPAIGN_ID
 
 
 class DonationModalFactory(DjangoModelFactory):
     class Meta:
-        model = networkapi.wagtailpages.donation_modal.DonationModal
+        model = DonationModal
 
     name = Faker('text', max_nb_chars=20)
 
@@ -53,19 +73,19 @@ class DonationModalFactory(DjangoModelFactory):
 class DonationModalsFactory(DjangoModelFactory):
     # note: plural!
     class Meta:
-        model = networkapi.wagtailpages.donation_modal.DonationModals
+        model = DonationModals
 
     donation_modal = SubFactory(DonationModalFactory)
 
 
 class SignupFactory(CTAFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.Signup
+        model = Signup
 
 
 class WagtailHomepageFactory(PageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.Homepage
+        model = Homepage
 
     hero_headline = Faker('text', max_nb_chars=140)
     hero_story_description = Faker('paragraph', nb_sentences=5, variable_nb_sentences=True)
@@ -93,12 +113,12 @@ class CMSPageFactory(PageFactory):
 
 class PrimaryPageFactory(CMSPageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.PrimaryPage
+        model = PrimaryPage
 
 
 class CampaignPageFactory(CMSPageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.CampaignPage
+        model = CampaignPage
 
     class Params:
         no_cta = Trait(cta=None)
@@ -108,47 +128,47 @@ class CampaignPageFactory(CMSPageFactory):
 
 class MiniSiteNameSpaceFactory(PageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.MiniSiteNameSpace
+        model = MiniSiteNameSpace
 
 
 class PeoplePageFactory(PageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.PeoplePage
+        model = PeoplePage
 
     title = 'people'
 
 
 class NewsPageFactory(PageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.NewsPage
+        model = NewsPage
 
     title = 'news'
 
 
 class StyleguideFactory(PageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.Styleguide
+        model = Styleguide
 
     title = 'styleguide'
 
 
 class InitiativesPageFactory(PageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.InitiativesPage
+        model = InitiativesPage
 
     title = 'initiatives'
 
 
 class ParticipatePageFactory(PageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.ParticipatePage
+        model = ParticipatePage
 
     title = 'participate'
 
 
 class OpportunityPageFactory(CMSPageFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.OpportunityPage
+        model = OpportunityPage
 
     class Params:
         no_cta = Trait(cta=None)
@@ -165,13 +185,13 @@ class FeaturedFactory(DjangoModelFactory):
 
 class HomepageFeaturedNewsFactory(FeaturedFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.HomepageFeaturedNews
+        model = HomepageFeaturedNews
 
     news = SubFactory(NewsFactory)
 
 
 class HomepageFeaturedHighlightsFactory(FeaturedFactory):
     class Meta:
-        model = networkapi.wagtailpages.models.HomepageFeaturedHighlights
+        model = HomepageFeaturedHighlights
 
     highlight = SubFactory(HighlightFactory)

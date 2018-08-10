@@ -9,7 +9,7 @@ import boto3
 import logging
 import json
 
-from networkapi.wagtailpages.models import Petition
+from networkapi.wagtailpages.models.petition import Petition
 
 # Google sheet SQS client
 gs_sqs = False
