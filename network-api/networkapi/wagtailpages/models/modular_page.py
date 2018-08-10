@@ -53,6 +53,3 @@ class ModularPage(MetadataPageMixin, Page):
         return self.title
 
     show_in_menus_default = True
-
-    class Meta:
-        app_label = 'wagtailpages'

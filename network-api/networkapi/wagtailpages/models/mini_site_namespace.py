@@ -22,6 +22,3 @@ class MiniSiteNameSpace(ModularPage):
         updated = get_page_tree_information(self, context)
         updated['mini_site_title'] = updated['root'].title
         return updated
-
-    class Meta:
-        app_label = 'wagtailpages'
